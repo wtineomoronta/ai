@@ -1,0 +1,292 @@
+<section class="post-view">
+    <style>
+        /* Definición de variables de color profesional y limpio */
+        :root {
+            --color-bg-light: #ffffff; /* Fondo claro */
+            --color-text-dark: #333333; /* Texto oscuro */
+            --color-primary: #007bff; /* Azul profesional (para enlaces/títulos) */
+            --color-accent: #28a745; /* Verde (para el éxito sutil) */
+            --color-risk: #dc3545; /* Rojo para riesgos */
+            --color-light-bg: #f7f7f7; /* Fondo sutil de tarjeta */
+        }
+        
+        .post-view {
+            background-color: var(--color-bg-light);
+            color: var(--color-text-dark);
+            padding: 20px 0;
+            font-family: Inter, Arial, sans-serif;
+            font-size: 15px; /* Base de fuente ligeramente reducida */
+        }
+        
+        /* Reducción de márgenes y paddings generales */
+        .container.page-content.post-full {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* Estilos de la Infografía (Grafo / Red Neuronal) */
+        .infografia-container {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        /* Línea de tiempo central (Conexión principal) */
+        .infografia-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px; /* Más delgado */
+            background: #e0e0e0; /* Color neutro para la conexión */
+            transform: translateX(-50%);
+            display: none; 
+        }
+
+        .infografia-grid {
+            display: block; 
+            margin-top: 20px;
+        }
+
+        .infografia-card {
+            background-color: var(--color-light-bg); 
+            border-radius: 6px; 
+            padding: 15px; 
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); 
+            position: relative;
+            margin-bottom: 25px; /* Espaciado entre tarjetas reducido */
+            border: 1px solid #ddd; /* Borde más sutil */
+            
+            /* Reset y estilo base */
+            flex: 1 1 100%; 
+            text-align: left;
+        }
+
+        /* Título y contenido */
+        .infografia-card h3 {
+            color: var(--color-primary);
+            font-size: 1.05rem; 
+            margin-top: 0;
+            padding-bottom: 5px;
+        }
+        .infografia-card p {
+            font-size: 0.95rem; /* Fuente de párrafo ligeramente reducida */
+        }
+
+        /* Elemento de conexión entre pasos (Móvil: Flecha) */
+        .infografia-card:not(:last-child)::after {
+            content: "▼";
+            font-size: 1rem;
+            color: #ccc;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        /* Contenido clave y riesgo */
+        .infografia-card strong {
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .infografia-card b {
+            color: var(--color-risk); 
+            font-weight: 600;
+            font-size: 0.8rem; 
+        }
+        
+        /* Adaptación a desktop (Grafo/Red) */
+        @media (min-width: 768px) {
+            
+            /* Mostrar la línea central */
+            .infografia-container::before {
+                display: block;
+            }
+            
+            .infografia-card {
+                width: 45%; 
+                margin: 0 auto 30px auto; /* Espaciado reducido */
+                position: relative;
+                border: 1px solid #ddd; 
+                
+                /* Configuración inicial: Lado Izquierdo */
+                margin-left: 0;
+                /* Corregir Overlapping: Dejar espacio a la derecha para el nodo */
+                padding-right: 30px; 
+            }
+
+            /* Tarjetas pares (2, 4): Lado Derecho */
+            .infografia-card:nth-child(even) {
+                margin-left: auto;
+                /* Corregir Overlapping: Dejar espacio a la izquierda para el nodo */
+                padding-left: 30px; 
+                padding-right: 15px; /* Restablecer padding normal del otro lado */
+            }
+            /* Corregir Overlapping: Restablecer padding normal del lado izquierdo */
+            .infografia-card:nth-child(odd) {
+                padding-left: 15px;
+            }
+            
+            /* Círculo conector (Nodo) */
+            .infografia-card::before {
+                content: attr(data-step);
+                position: absolute;
+                top: 50%; /* Centrado vertical */
+                transform: translateY(-50%);
+                width: 30px; 
+                height: 30px; 
+                line-height: 30px;
+                border-radius: 50%;
+                background-color: var(--color-primary);
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                box-shadow: 0 0 0 5px var(--color-bg-light); /* Anillo para destacar el nodo */
+                z-index: 10;
+            }
+            
+            /* Posicionar el círculo en el lado derecho (Nodos Impares / Izquierda) */
+            .infografia-card:nth-child(odd)::before {
+                right: -15px; /* Superponer sobre la línea central */
+            }
+            
+            /* Posicionar el círculo en el lado izquierdo (Nodos Pares / Derecha) */
+            .infografia-card:nth-child(even)::before {
+                left: -15px; /* Superponer sobre la línea central */
+            }
+
+            /* Ocultar la flecha vertical en desktop */
+            .infografia-card::after {
+                display: none;
+            }
+
+            /* PASO 5: Resultado final destacado - Centro */
+            .infografia-card:nth-child(5) {
+                width: 60%;
+                margin: 40px auto;
+                text-align: center;
+                background-color: var(--color-bg-light);
+                border: 2px solid var(--color-accent); /* Destacar con color de éxito */
+                box-shadow: 0 0 10px rgba(40, 167, 69, 0.2); 
+                
+                /* Restablecer padding interno para el centrado */
+                padding: 20px 15px;
+            }
+            
+            .infografia-card:nth-child(5) h3 {
+                color: var(--color-accent);
+            }
+
+            .infografia-card:nth-child(5)::before {
+                /* Círculo final, cambia a color de éxito */
+                content: "✓"; 
+                width: 40px; 
+                height: 40px;
+                line-height: 40px;
+                background-color: var(--color-accent);
+                top: -20px; /* Movido más arriba para no solapar el contenido */
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Ajuste de título y resumen */
+        h1 { margin-bottom: 5px; }
+        .post-meta { margin-bottom: 10px; }
+        .post-summary { margin-bottom: 20px !important; }
+
+    </style>
+
+    <div class="container page-content post-full">
+        
+        <!-- ENLACE DE NAVEGACIÓN -->
+        <a href="#" onclick="showView('blog', event)" style="font-size: 0.9rem; margin-bottom: 15px; display: block; color: var(--color-primary);">&larr; Volver al Archivo</a>
+        
+        <!-- IMAGEN DESTACADA (MARCO VISUAL) -->
+        <img src="/images/post-infografia-header.png" alt="Infografía: Datos de Negocio como IP" class="post-full-image" style="border: 1px solid #ddd; border-radius: 8px;">
+        
+        <!-- TÍTULO Y METADATOS -->
+        <h1 style="color: var(--color-text-dark);">La Nueva IP: Transforme sus Datos de Negocio en Activos de IA.</h1>
+        <span class="post-meta" style="font-size: 0.8rem; color: #555; margin-bottom: 30px;">Publicado:
+                        Octubre 20, 2025 · Categoría: Estrategia y Seguridad · Autor: Wilson Tineo
+                        Moronta</span>
+        
+        <!-- DESCRIPCIÓN BREVE PARA EL CARD DEL BLOG -->
+        <p class="post-summary" style="font-size: 1.1rem; color: #555; margin-bottom: 20px;">
+            En esta infografía exploramos el ciclo de vida estratégico de los datos. Aprenda a convertir la información interna de su negocio en la fuente de entrenamiento más valiosa para una IA que le otorgue una ventaja competitiva sostenible, protegiendo su Propiedad Intelectual (IP).
+        </p>
+        <hr style="border-top: 1px solid #eee;">
+
+        <h2 style="color: var(--color-primary); text-align: center; margin-bottom: 25px;">INFOGRAFÍA: El Flujo Estratégico del Dato a Propiedad Intelectual (IP)</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 20px;">Sus datos son el material de entrenamiento que define el ADN de su negocio. Siga este flujo de <b>cinco nodos clave</b> para convertir su información interna en Propiedad Intelectual de alto valor:</p>
+        
+        <div class="infografia-container">
+            <div class="infografia-grid">
+
+                <!-- NODO 1 (Izquierda) -->
+                <div class="infografia-card" data-step="1">
+                    <h3>Identificación y Curación</h3>
+                    <p>
+                        <strong>Lo Crítico:</strong> Calidad, no cantidad. Identifique datos con valor predictivo y estratégico (ej. historiales de fallos, manuales internos).
+                    </p>
+                    <p>
+                        <b>Riesgo:</b> Usar datos incompletos o sesgados que entrenen una IA ineficaz.
+                    </p>
+                </div>
+
+                <!-- NODO 2 (Derecha) -->
+                <div class="infografia-card" data-step="2">
+                    <h3>Estandarización y Vectorización</h3>
+                    <p>
+                        <strong>Lo Crítico:</strong> Transforme el texto en <b>vectores</b> (huellas digitales de conocimiento) usando Modelos de <i>Embedding</i> para una búsqueda precisa (RAG).
+                    </p>
+                    <p>
+                        <b>Riesgo:</b> Vectores de baja calidad que diluyen el significado de su IP.
+                    </p>
+                </div>
+
+                <!-- NODO 3 (Izquierda) -->
+                <div class="infografia-card" data-step="3">
+                    <h3>Refuerzo de Seguridad (Blindaje)</h3>
+                    <p>
+                        <strong>Lo Crítico:</strong> Anonimización de datos sensibles y control de acceso. Almacenamiento en <strong>Base de Datos Vectorial Segura</strong>.
+                    </p>
+                    <p>
+                        <b>Riesgo:</b> Fugas de datos que exponen información sensible o IP de la empresa.
+                    </p>
+                </div>
+                
+                <!-- NODO 4 (Derecha) -->
+                <div class="infografia-card" data-step="4">
+                    <h3>Entrenamiento (RAG / Fine-Tuning)</h3>
+                    <p>
+                        <strong>Lo Crítico:</strong> Decida la vía: RAG para conocimiento general o <i>Fine-Tuning</i> para un tono de voz y <b>comportamiento</b> únicos de su negocio.
+                    </p>
+                    <p>
+                        <b>Riesgo:</b> Depender de LLMs públicos que no replican sus reglas internas.
+                    </p>
+                </div>
+                
+                <!-- NODO 5 - Cierre Estratégico (Centro) -->
+                <div class="infografia-card" data-step="5">
+                    <h3>La Retención de la IP y la Ventaja</h3>
+                    <p>
+                        <strong>Lo Crítico:</strong> Su modelo de IA entrenado es su <b>Propiedad Intelectual</b>. Es una ventaja competitiva sostenible y única.
+                    </p>
+                    <p>
+                        <b>Estrategia:</b> Mantener el ciclo de vida del dato activo para el aprendizaje continuo.
+                    </p>
+                </div>
+
+            </div> <!-- Fin infografia-grid -->
+        </div> <!-- Fin infografia-container -->
+        
+        <hr style="margin-top: 40px; border-top: 1px solid #ccc;">
+        
+        <p style="text-align: center; margin-top: 20px;">
+            <i style="color: #666;">El valor real de la IA reside en el valor y la unicidad de los datos que la alimentan. Proteja su IP.</i>
+        </p>
+
+    </div>
+</section>

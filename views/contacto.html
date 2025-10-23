@@ -1,0 +1,39 @@
+<section class="contacto-view">
+    <div class="container page-content">
+        <h1>Contacto y Solicitud de Asesoría</h1>
+        <p>Si desea solicitar una asesoría estratégica personalizada, colaborar en un proyecto o tiene preguntas sobre las publicaciones, por favor utilice el siguiente formulario. Asegúrese de detallar el tipo de proyecto o consulta.</p>
+        
+        <!-- MODIFICADO: action, method y onsubmit para gestión con JS y evitar el 405 -->
+        <form class="contact-form" id="contact-form" action="#" method="GET" onsubmit="return handleContactFormSubmit(event)">
+            
+            <label for="name">Nombre Completo:</label>
+            <input type="text" id="name" name="name" required> 
+            
+            <label for="email">Correo Electrónico (Profesional):</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="subject">Asunto (e.g., Solicitud de Asesoría / Consulta Blog):</label>
+            <input type="text" id="subject" name="subject" required>
+            
+            <label for="message">Mensaje Detallado:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit" class="btn-cta">Enviar Mensaje</button>
+        </form>
+        
+        <div style="margin-top: 40px; border-top: 1px solid #ccc; padding-top: 20px;">
+            <h3>Información Adicional de Contacto</h3>
+            <p><i class="fas fa-envelope"></i> Email profesional: <a href="mailto:wtineomoronta@gmail.com">wtineomoronta@gmail.com</a></p>
+            <p><i class="fab fa-linkedin-in"></i> LinkedIn: <a href="https://www.linkedin.com/in/wtineomoronta" target="_blank">https://www.linkedin.com/in/wtineomoronta</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL: Se asegura la clase modal-overlay para aplicar los estilos CSS -->
+<div id="status-modal" class="modal-overlay">
+    <div class="modal-content">
+        <i id="modal-icon" class="fas"></i>
+        <h4 id="status-modal-message">Mensaje de prueba</h4>
+        <button onclick="closeModal()">Cerrar</button>
+    </div>
+</div>

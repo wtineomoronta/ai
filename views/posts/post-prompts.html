@@ -1,0 +1,74 @@
+<section class="post-view">
+    <div class="container page-content post-full">
+        
+        <!-- ENLACE DE NAVEGACIÓN -->
+        <a href="#" onclick="showView('blog', event)" style="font-size: 0.9rem; margin-bottom: 20px; display: block;">&larr; Volver al Archivo</a>
+        
+        <!-- IMAGEN DESTACADA (CONTENEDOR ESTÁTICO) -->
+        <!-- Usa la ruta donde guardaste la imagen descargada -->
+        <img src="/images/post-prompts-header.png" alt="El puente entre la IA y el Negocio" class="post-full-image">
+        
+        <!-- TÍTULO Y METADATOS -->
+        <h1>Ingeniería de Prompts: El Puente entre LLMs y el Negocio</h1>
+        <span class="post-meta" style="font-size: 0.9rem; color: #555; margin-bottom: 30px;">Publicado: Octubre 20, 2025 · Categoría: Metodología · Autor: Wilson Tineo Moronta</span>
+        <br/><br/>
+        <!-- DESCRIPCIÓN BREVE PARA EL CARD DEL BLOG (NUEVA LÍNEA) -->
+        <p class="post-summary" style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+            Descubra por qué la forma en que pregunta a la IA (el <i>prompt</i>) es la habilidad más crítica del siglo XXI. Aprenda el método CRIT para transformar respuestas genéricas en resultados de alto valor estratégico y mitigar riesgos en el negocio.
+        </p>
+        <hr style="color: #555; margin-bottom: 30px;">
+        
+        <!-- CONTENIDO PRINCIPAL -->
+        
+        <h2>¿Qué es realmente un 'Prompt'? Una analogía simple.</h2>
+        
+        <p>Cuando hablamos de Modelos de Lenguaje Grande (LLMs) como ChatGPT o Gemini, la gente se enfoca en la IA en sí misma. Sin embargo, el verdadero poder no reside solo en la capacidad del modelo, sino en la <strong>pregunta</strong> que usted le hace. A esa pregunta o instrucción la llamamos <i>Prompt</i>.</p>
+        
+        <p>Imaginemos que la IA es un motor muy potente, capaz de llevarlo a cualquier lugar. El <i>prompt</i> es el mapa, las coordenadas y las instrucciones que le damos al conductor. Unas instrucciones vagas (ej. "dame ideas") resultarán en una respuesta genérica. Instrucciones precisas (ej. "Actúa como un analista de riesgo y lista tres amenazas de ciberseguridad para una empresa de servicios financieros en 2025") resultarán en una respuesta de alto valor estratégico.</p>
+        
+        <p>En términos sencillos: <strong>El <i>prompt</i> es la clave para desbloquear el 100% del potencial de la Inteligencia Artificial Generativa.</strong></p>
+        
+        <hr style="color: #555; margin-bottom: 30px;">
+        
+        <h2>¿Por qué la Ingeniería de Prompts es Crítica para el Negocio?</h2>
+        
+        <p>La Ingeniería de Prompts (Prompt Engineering) es el arte y la ciencia de diseñar instrucciones óptimas. Esto es vital para cualquier organización por tres razones fundamentales:</p>
+        
+        <h3>1. Eficiencia y Ahorro de Costos</h3>
+        <p>Un <i>prompt</i> mal diseñado puede requerir varias iteraciones para obtener una respuesta útil, gastando tiempo de los empleados (su recurso más caro) y consumiendo más recursos de la API (si usa modelos de pago). Un buen <i>prompt</i> logra el objetivo en el primer o segundo intento.</p>
+        
+        <h3>2. Consistencia y Calidad de la Salida</h3>
+        <p>En el ámbito empresarial, no solo necesitamos una respuesta correcta, sino una respuesta que cumpla con los estándares corporativos. Un ingeniero de <i>prompts</i> se asegura de que la IA mantenga un tono, un formato y una exactitud constante, algo indispensable para la atención al cliente, la generación de informes o la creación de contenido.</p>
+
+        <h3>3. Mitigación de Riesgos (Tasa de "Alucinación")</h3>
+        <p>Los LLMs a veces "alucinan", es decir, generan información incorrecta o inventada con mucha confianza. La Ingeniería de Prompts incluye técnicas avanzadas para <strong>guiar</strong> al modelo a basar sus respuestas en fuentes específicas o seguir patrones lógicos, lo que reduce drásticamente las alucinaciones y mejora la confiabilidad de la información generada. Esta es una preocupación clave en temas de <strong>Seguridad y Riesgo TI</strong>.</p>
+        
+        <hr style="color: #555; margin-bottom: 30px;">
+        
+        <h2>Los 4 Pilares de un Prompt Efectivo (El Método "CRIT")</h2>
+        
+        <p>Para simplificar este concepto, he destilado la ingeniería de <i>prompts</i> en un método de cuatro pasos, ideal para cualquier persona que esté comenzando a usar IA de manera estratégica:</p>
+
+        <ol>
+            <li><strong>C - Contexto:</strong> Proporcione la información de fondo que la IA necesita. <i>Ejemplo: "Estamos en una reunión de planificación estratégica..."</i></li>
+            <li><strong>R - Rol:</strong> Asigne una personalidad a la IA. Esto le da un filtro de conocimiento. <i>Ejemplo: "...actúa como un Chief Technology Officer (CTO) de una empresa de 500 empleados..."</i></li>
+            <li><strong>I - Instrucción:</strong> Especifique la tarea y el formato de salida deseado. <i>Ejemplo: "...y genera 5 opciones de inversión para el próximo trimestre en formato de lista con un breve resumen."</i></li>
+            <li><strong>T - Tono/Restricciones:</strong> Defina el estilo y las limitaciones. <i>Ejemplo: "...El tono debe ser formal, evitando jerga de marketing. No menciones blockchain."</i></li>
+        </ol>
+        <br/>
+        <h3>Ejemplo Práctico del Método CRIT:</h3>
+        
+        <p><strong>Prompt Mejorado:</strong> "<strong>[C]</strong> Estamos en una reunión de planificación estratégica de un banco de inversión. <strong>[R]</strong> Actúa como un Chief Risk Officer (CRO) con 20 años de experiencia. <strong>[I]</strong> Analiza el impacto potencial del <i>phishing</i> asistido por IA en nuestra cartera de clientes de alto patrimonio y lista 3 acciones defensivas prioritarias en formato de tabla. <strong>[T]</strong> Utiliza un tono directo y ejecutivo, y limita la explicación de cada acción a 50 palabras."</p>
+        
+        <p>Un <i>prompt</i> como este no solo pide información, sino que establece un marco de trabajo profesional, asegurando una respuesta de alta calidad desde el primer intento.</p>
+
+        <hr style="color: #555; margin-bottom: 30px;">
+        
+        <h2>Conclusión: De Usuario a Ingeniero de Prompts</h2>
+        
+        <p>La era de la Inteligencia Artificial nos exige pasar de ser meros usuarios a convertirnos en ingenieros de las ideas. Comprender y aplicar la Ingeniería de Prompts es una habilidad esencial del siglo XXI, tan importante como lo fue aprender a usar una hoja de cálculo. Esta disciplina no es solo para desarrolladores; es la metodología que permite a los líderes y profesionales <strong>obtener resultados accionables</strong> de la tecnología más transformadora de nuestro tiempo.</p>
+        
+        <p>En futuros posts, profundizaremos en técnicas más avanzadas, como el <i>Chain-of-Thought</i> (CoT) y la incorporación de datos externos (RAG). <strong>¡Manténgase atento!</strong></p>
+
+    </div>
+</section>

@@ -1,0 +1,681 @@
+/* ------------------------------------------------------------------- */
+        /* 1. VARIABLES & RESET BASICO */
+        /* ------------------------------------------------------------------- */
+        :root {
+            --color-primary: #0056b3; /* Azul Profundo */
+            --color-primary-light: #e6f0ff; 
+            --color-text: #202124;    
+            --color-text-light: #5f6368; 
+            --color-background: #ffffff;
+            --color-light-gray: #f8f9fa; 
+            --font-main: 'Roboto', sans-serif;
+            --max-width-desktop: 1200px;
+            --max-width-content: 800px; 
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ------------------------------------------------------------------- */
+        /* 2. TIPOGRAFIA & CTA */
+        /* ------------------------------------------------------------------- */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+        }
+        h2 { font-size: 1.8rem; }
+        p { margin-bottom: 1em; }
+        
+        a {
+            text-decoration: none;
+            color: var(--color-primary);
+            transition: color 0.3s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width-desktop);
+            margin: 0 auto;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: white !important;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: #003d7c;
+            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+        }
+        
+        /* ------------------------------------------------------------------- */
+        /* 3. HEADER & NAVIGATION (Incluye Redes Sociales en Header) */
+        /* ------------------------------------------------------------------- */
+        header {
+            background-color: var(--color-background);
+            border-bottom: 1px solid var(--color-light-gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo a {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+        .logo small {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--color-primary);
+        }
+
+        .main-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 25px; /* Espacio entre navegación y iconos */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--color-text-light);
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-primary);
+        }
+        
+        .header-social-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+        .header-social-icons a {
+            color: var(--color-text-light);
+        }
+        .header-social-icons a:hover {
+            color: var(--color-primary);
+            transform: scale(1.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--color-text);
+            margin-left: 15px;
+        }
+        
+        /* ------------------------------------------------------------------- */
+/* 4. HERO SECTION (CON IMAGEN DE FONDO SIMPLIFICADO) */
+/* ------------------------------------------------------------------- */
+.hero {
+    /* Usamos una imagen de red neuronal como ejemplo */
+    background-image: url('/images/img-ia-hero-section.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; 
+    color: white; /* Color de texto blanco para contraste */
+    text-align: center;
+    padding: 100px 20px; 
+    margin-bottom: 40px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden; 
+}
+
+/* Capa de superposición (overlay) para asegurar la legibilidad del texto */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Superposición oscura más fuerte */
+    z-index: 1;
+}
+
+/* Contenido (Texto y Botón) por encima del overlay */
+.hero > .container {
+    position: relative;
+    z-index: 2; 
+}
+
+.hero h1 {
+    font-size: 3.2rem; 
+    color: white; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.hero p.blog-description {
+    font-size: 1.3rem; 
+    color: #f0f0f0; 
+    margin: 0 auto 30px auto;
+    max-width: 800px; 
+}
+
+/* El botón CTA ya tiene estilos de contraste */
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 15px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p.blog-description {
+        font-size: 1.1rem;
+    }
+}
+
+        /* ------------------------------------------------------------------- */
+        /* 5. VISTAS Y POST CARDS */
+        /* ------------------------------------------------------------------- */
+        .view {
+            display: none; 
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+        .view:first-child {
+            display: block; 
+        }
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 40px 0;
+        }
+        
+/* Estilos para el listado de posts (BLOG y HOME) */
+.post-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cuadrícula flexible */
+    gap: 30px;
+}
+
+.post-list article {
+    /* Eliminar padding vertical excesivo y ajustar al bloque de grid */
+    padding: 25px; 
+    border-bottom: none; /* Eliminamos la línea divisoria inferior */
+    border: 1px solid var(--color-light-gray); /* Añadimos un borde suave a cada tarjeta */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el enlace 'Continuar Leyendo' al final */
+}
+
+.post-list article:hover {
+    background-color: var(--color-light-gray);
+    transform: translateY(-3px); /* Pequeño efecto de elevación */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+        
+        /* Secciones sobre mí y contacto simple */
+        .page-content {
+            max-width: var(--max-width-content);
+            margin: 0 auto;
+        }
+
+        /* Estilos para el formulario de contacto (simulado) */
+        .contact-form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        .contact-form input[type="text"], 
+        .contact-form input[type="email"], 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: var(--font-main);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+        .contact-form .btn-cta {
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            padding: 10px 25px;
+        }
+        
+        /* ------------------------------------------------------------------- */
+        /* 6. SIDEBAR & CTA (Mantiene LinkedIn y X) */
+        /* ------------------------------------------------------------------- */
+        .sidebar-content {
+            position: sticky;
+            top: 80px; 
+            padding-top: 20px;
+        }
+
+        /* CTA Asesoría */
+        .cta-sidebar {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .cta-sidebar h4 {
+            color: white;
+            font-size: 1.3rem;
+        }
+        .cta-sidebar .btn-cta {
+            background-color: white;
+            color: var(--color-primary) !important;
+            padding: 8px 20px;
+            font-weight: 700;
+        }
+        
+        /* Redes en Sidebar (Profesionales) */
+        .social-box {
+            background-color: var(--color-light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .social-icons-professional {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .social-icon-link {
+            transition: transform 0.2s ease;
+            font-size: 1.8rem; 
+            color: var(--color-primary);
+        }
+        .social-icon-link:hover {
+            transform: scale(1.1);
+            color: #003d7c;
+        }
+        
+        /* ------------------------------------------------------------------- */
+        /* 7. FOOTER AJUSTADO */
+        /* ------------------------------------------------------------------- */
+        footer {
+            background-color: var(--color-text);
+            color: white;
+            padding: 30px 0;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Alineación superior para mejor distribución */
+            flex-wrap: wrap;
+            text-align: left;
+        }
+        
+        .footer-col {
+            padding: 10px;
+            flex-basis: 30%; /* Distribución en 3 columnas en desktop */
+            min-width: 200px; /* Asegura espacio mínimo */
+        }
+        
+        .footer-col h5 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--color-primary-light);
+        }
+        
+        .footer-col a {
+            color: white;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .footer-col a:hover {
+            color: var(--color-primary);
+        }
+        
+        .footer-social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .footer-social-icons .social-icon-link {
+            color: white; 
+            font-size: 1.2rem;
+        }
+        .footer-social-icons .social-icon-link:hover {
+            color: var(--color-primary);
+        }
+        
+        .footer-copyright {
+            width: 100%;
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        
+        /* ------------------------------------------------------------------- */
+        /* 8. RESPONSIVIDAD */
+        /* ------------------------------------------------------------------- */
+
+        @media (max-width: 991px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px; 
+                left: 0;
+                width: 100%;
+                background-color: var(--color-background);
+                border-top: 1px solid var(--color-light-gray);
+                padding: 10px 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            }
+            .nav-links.open { display: flex; }
+            .menu-toggle { display: block; }
+            
+            .header-social-icons { display: none; } /* Ocultar en móvil para dar espacio */
+            
+            .sidebar { 
+                display: block; 
+                grid-column: 1 / -1; 
+            }
+            .sidebar-content { 
+                position: static; 
+                padding-top: 0; 
+            }
+            .main-grid { padding: 20px 0; }
+            
+            .footer-content { 
+                justify-content: center;
+                text-align: center; 
+            }
+            .footer-col { flex-basis: 100%; }
+        }
+        
+        @media (min-width: 992px) {
+            .main-grid {
+                grid-template-columns: 2fr 1fr; 
+            }
+            .sidebar {
+                display: block;
+                grid-column: 2 / 3;
+            }
+            .content-area {
+                grid-column: 1 / 2;
+            }
+        }
+
+/* ------------------------------------------------------------------- */
+/* 10. ESTILOS DE IMAGENES DESTACADAS EN POSTS Y TARJETAS */
+/* ------------------------------------------------------------------- */
+
+/* Estilo general para la imagen destacada en el post completo */
+.post-full-image {
+    width: 100%;
+    height: 350px; /* Altura fija para consistencia */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: block; /* Asegura que no haya espacio extra debajo */
+    background-color: #e0e0e0; /* Color de fondo mientras carga la imagen */
+}
+
+/* Estilo para la imagen en las tarjetas del blog (en la cuadrícula) */
+.post-card-image {
+    width: 100%;
+    height: 180px; /* Altura fija para todas las tarjetas */
+    object-fit: cover;
+    border-radius: 6px; /* Bordes ligeramente más pequeños que el post completo */
+    margin-bottom: 15px;
+    background-color: #e0e0e0; /* Color de fondo mientras carga la imagen */
+    display: block;
+}
+
+/* Ajustes para el título de la tarjeta si hay imagen */
+.post-list article h3 {
+    margin-top: 0; /* Asegura que el título quede justo debajo de la imagen */
+}
+
+/* En caso de que se haya ocultado .media-marker, asegúrate de que no interfiera */
+.media-marker {
+    display: none !important; /* Fuerza a ocultar si se usaban antes */
+}
+
+/* Media query para ajustar la altura de las imágenes en pantallas más pequeñas */
+@media (max-width: 768px) {
+    .post-full-image {
+        height: 250px;
+        margin-bottom: 20px;
+    }
+    .post-card-image {
+        height: 150px;
+    }
+}
+
+/* ------------------------------------------------------------------- */
+/* 11. ESTILOS DE AUTOR EN SOBRE MÍ (CON IMAGEN) */
+/* ------------------------------------------------------------------- */
+
+.bio-author {
+    display: flex; /* Usa flexbox para alinear la imagen y el texto */
+    gap: 30px; 
+    align-items: flex-start; /* Alinea el contenido en la parte superior */
+    margin-bottom: 40px; /* Separación con el resto del contenido */
+}
+
+.author-photo {
+    /* Define el tamaño y estilo de la imagen */
+    width: 25%; 
+    min-width: 25%; /* Fija el ancho */
+    height: 25%;
+    object-fit: cover;
+    border-radius: 50%; /* Forma redonda: profesional y moderna */
+    border: 4px solid var(--color-primary-light); /* Borde sutil */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bio-text-wrapper {
+    flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+}
+
+/* Responsividad: Apilamiento en dispositivos móviles */
+@media (max-width: 600px) {
+    .bio-author {
+        flex-direction: column; /* Apila la imagen y el texto */
+        align-items: center; /* Centra la imagen y el texto apilado */
+        text-align: center;
+    }
+    .author-photo {
+        width: 150px; 
+        height: 150px;
+        margin-bottom: 20px;
+    }
+}
+
+/* ------------------------------------------------------------------- */
+/* 12. ESTILOS DE DIALOG/MODAL CENTRALIZADO */
+/* ------------------------------------------------------------------- */
+.modal-overlay {
+    /* Pantalla completa y oscura */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200; /* Asegura que esté encima de todo */
+    visibility: hidden; /* Oculto por defecto */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+.modal-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--color-background);
+    padding: 35px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+
+.modal-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+.modal-icon.success {
+    color: #28a745; /* Verde para éxito */
+}
+.modal-icon.error {
+    color: #dc3545; /* Rojo para error */
+}
+
+#modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+#modal-message {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 25px;
+}
+
+#close-modal {
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------- */
+/* 12. ESTILOS ADICIONALES PARA EL MODAL DE ESTADO (SUCCESS/ERROR) */
+/* ------------------------------------------------------------------- */
+
+/* Definición de colores de estado (Asumiendo que estas variables están en :root) */
+/* Si no existen, descomente y ajuste los valores, si ya existen, estas líneas son redundantes. */
+/*
+:root {
+    --color-success: #28a745; 
+    --color-error: #dc3545;
+}
+*/
+
+.modal-content h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--color-text);
+}
+
+.modal-content i.fas {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+/* --- ESTILOS DE ESTADO --- */
+
+/* ÉXITO (Para cuando el JS añade la clase .success) */
+.modal-content.success {
+    border-top: 5px solid var(--color-success, #28a745); /* Usar variable o fallback verde */
+}
+
+.modal-content.success i {
+    color: var(--color-success, #28a745) !important; 
+}
+
+.modal-content.success button {
+    background-color: var(--color-success, #28a745);
+    color: var(--color-background);
+}
+
+.modal-content.success button:hover {
+    opacity: 0.9;
+}
+
+/* ERROR (Para un posible mensaje de error) */
+.modal-content.error {
+    border-top: 5px solid var(--color-error, #dc3545); /* Usar variable o fallback rojo */
+}
+
+.modal-content.error i {
+    color: var(--color-error, #dc3545) !important;
+}
+
+.modal-content.error button {
+    background-color: var(--color-error, #dc3545);
+    color: var(--color-background);
+}
+
+.modal-content.error button:hover {
+    opacity: 0.9;
+}
