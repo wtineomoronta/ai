@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'post-vector-db': 'views/posts/post-vector-db.html',
         'post-infografia-datos-ip': 'views/posts/post-infografia-datos-ip.html',        
         'post-refuerzo': 'views/posts/post-refuerzo.html',
-        'post-xai': 'views/posts/post-xai.html'
+        'post-xai': 'views/posts/post-xai.html',
+        'post-bienvenida-video': 'views/posts/post-bienvenida-video.html'
     };
     
     const mainContentArea = document.getElementById('main-content-area');
